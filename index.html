@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hexagons!</title>
+<link href="bootstrap3.css" rel="stylesheet">
+<style>
+* {
+	color: #eeeeee;
+}
+.hex {
+	cursor: default;
+	position: relative;
+}
+.hex a {
+	cursor: pointer;
+}
+.hex h1 {
+	margin: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+.hex-wrap {
+	position: relative;
+}
+.hex-inner {
+	background-color: #FF7777;
+	cursor: pointer;
+	height: 100%;
+	left: 0;
+	overflow: hidden;
+	padding: 0 1em;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: -2;
+}
+.hex60 {
+	-webkit-transform: rotate(60deg);
+	transform: rotate(60deg);
+	z-index: -1;
+}
+.hex-60 {
+	-webkit-transform: rotate(-60deg);
+	transform: rotate(-60deg);
+}
+.hex-content {
+	z-index: 0;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+.hex.tilt30 {
+	-webkit-transform: rotate(30deg);
+	transform: rotate(30deg);
+}
+.hex.tilt-30 {
+	-webkit-transform: rotate(-30deg);
+	transform: rotate(-30deg);
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+
+		<div class="col col-lg-3">
+			<div class="hex tilt30">
+				<div class="hex-wrap">
+					<div class="hex-inner hex0 hex-content">
+						<h1>Does pink suit you?</h1>
+					</div>
+					<div class="hex-inner hex-60">
+						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
+					</div>
+					<div class="hex-inner hex60">
+						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
+					</div>
+				</div>
+			</div><!-- /.hex -->
+		</div><!-- /.col .col-lg-3 -->
+
+		<div class="col col-lg-4">
+			<div class="hex">
+				<div class="hex-wrap">
+					<div class="hex-inner hex0 hex-content">
+						<h1>Does pink suit you?</h1>
+					</div>
+					<div class="hex-inner hex-60">
+						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
+					</div>
+					<div class="hex-inner hex60">
+						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
+					</div>
+				</div>
+			</div><!-- /.hex -->
+		</div>
+
+		<div class="col col-lg-2">
+			<div class="hex tilt-30">
+				<div class="hex-wrap">
+					<div class="hex-inner hex0 hex-content">
+						<h1>Does pink suit you?</h1>
+					</div>
+					<div class="hex-inner hex-60">
+						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
+					</div>
+					<div class="hex-inner hex60">
+						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
+					</div>
+				</div>
+			</div><!-- /.hex -->
+		</div>
+
+		<div class="col col-lg-1">
+			<div class="hex">
+				<div class="hex-wrap">
+					<div class="hex-inner hex0 hex-content">
+						<h1>Does pink suit you?</h1>
+					</div>
+					<div class="hex-inner hex-60">
+						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
+					</div>
+					<div class="hex-inner hex60">
+						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div><!-- /.row -->
+</div><!-- /.container -->
+
+<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+<!-- <script src="bootstrap3.min.js"></script> -->
+<script>
+$.each( $('.hex'), function(){
+	$(this).click(function(){
+		$h = $(this).find('.hex-inner h1');
+		if( $h.filter(':visible').parent().next('.hex-inner').children('h1').length > 0 ){
+// console.log('still in list');
+			$h.filter(':visible').hide().parent().removeClass('hex-content').next('.hex-inner').addClass('hex-content').children('h1').show();
+		} else {
+// console.log('list used up!');
+			$h.filter(':visible').hide();
+			$(this).find('.hex-inner').removeClass('hex-content').first().addClass('hex-content').children('h1').show();
+		}
+	});
+});
+
+$(window).resize(function(){
+	$.each( $('.hex'), function(){
+		var $xi = $(this).find('.hex-inner');
+		var w = $xi.innerWidth();
+		var h = w / 1.73205080757;// sqrt(3) = width of hexagon, 1 = height: http://hexnet.org/content/hexagonal-geometry#geometry
+		$xi.height( h );
+		$(this).height( 2 * h );
+		$(this).children('.hex-wrap').css('top', h/2);
+		console.log('resized!');
+	});
+});
+
+$(function(){
+	$(window).trigger('resize');
+});
+</script>
+</body>
+</html>
