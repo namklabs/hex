@@ -41,11 +41,18 @@ h1,h2,h3,h4,h5,h6 {
 }
 .hex-wrap {
 	position: relative;
+	/* responsive design from http://wemadeyoulook.at/blogg/proportional-scaling-responsive-boxes-using-just-css/ */
+	width: 100%;
+	margin-top: 28.867513459462575%;
+	margin-bottom: -13.397459621%;
+	padding-bottom: 100%;
+	float: left;
+	height: 0;
 }
 .hex-inner {
 	background-color: #FF7777;
 	cursor: pointer;
-	height: 100%;
+	height: 57.73502691892515%;
 	left: 0;
 	overflow: hidden;
 	padding: 0 1em;
@@ -318,6 +325,7 @@ $.each( $('.hex'), function(){
 });
 
 $(window).resize(function(){
+	/*
 	$.each( $('.hex'), function(){
 		var $xi = $(this).find('.hex-inner');
 		var w = $xi.innerWidth();
@@ -327,6 +335,7 @@ $(window).resize(function(){
 		$(this).children('.hex-wrap').css('top', h/2);
 		console.log('resized!');
 	});
+	*/
 
 	$('.simplehex').each(function(){
 		$(this).css('font-size',$(this).width());
