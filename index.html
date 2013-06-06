@@ -17,16 +17,6 @@ h1,h2,h3,h4,h5,h6 {
 .hex {
 	cursor: default;
 	position: relative;
-	transition: all 200ms ease;
-	transform: rotate(0deg);
-	-webkit-transition: all 200ms ease;
-	-webkit-transform: rotate(0deg);
-}
-.hex:hover {
-	transition: all 200ms ease;
-	transform: rotate(30deg);
-	-webkit-transition: all 200ms ease;
-	-webkit-transform: rotate(30deg);
 }
 .hex a {
 	cursor: pointer;
@@ -39,13 +29,44 @@ h1,h2,h3,h4,h5,h6 {
 	-o-user-select: none;
 	user-select: none;
 }
+
 .hex-wrap {
+	transition: all .2s ease;
+	-ms-transition: all .2s ease;
+	-webkit-transition: all .2s ease;
+
+	transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+
+	transform-origin: 50% 28.867513459462575%;
+	-webkit-transform-origin: 50% 28.867513459462575%;
+	-ms-transform-origin: 50% 28.867513459462575%;
+
 	position: relative;
+	/* responsive design from http://wemadeyoulook.at/blogg/proportional-scaling-responsive-boxes-using-just-css/ */
+	width: 100%;
+	margin-top: 28.867513459462575%;
+	margin-bottom: -13.397459621%;
+	padding-bottom: 100%;
+	float: left;
+	height: 0;
 }
+
+.hex-wrap:hover {
+	transition: all .2s ease;
+	-ms-transition: all .2s ease;
+	-webkit-transition: all .2s ease;
+
+	transform: rotate(30deg);
+	-ms-transform: rotate(30deg);
+	-webkit-transform: rotate(30deg);
+}
+
 .hex-inner {
 	background-color: #FF7777;
 	cursor: pointer;
-	height: 100%;
+	height: 57.73502691892515%;
 	left: 0;
 	overflow: hidden;
 	padding: 0 1em;
@@ -54,27 +75,37 @@ h1,h2,h3,h4,h5,h6 {
 	width: 100%;
 	z-index: -2;
 }
+
 .hex60 {
-	-webkit-transform: rotate(60deg);
 	transform: rotate(60deg);
+	-ms-transform: rotate(60deg);
+	-webkit-transform: rotate(60deg);
+
 	z-index: -1;
 }
+
 .hex-60 {
-	-webkit-transform: rotate(-60deg);
 	transform: rotate(-60deg);
+	-ms-transform: rotate(-60deg);
+	-webkit-transform: rotate(-60deg);
 }
+
 .hex-content {
 	z-index: 0;
 	/*overflow: scroll;*/
 	/*-webkit-overflow-scrolling: touch;*/
 }
+
 .hex.tilt30 {
-	-webkit-transform: rotate(30deg);
 	transform: rotate(30deg);
+	-ms-transform: rotate(30deg);
+	-webkit-transform: rotate(30deg);
 }
+
 .hex.tilt-30 {
-	-webkit-transform: rotate(-30deg);
 	transform: rotate(-30deg);
+	-ms-transform: rotate(-30deg);
+	-webkit-transform: rotate(-30deg);
 }
 
 .simplehex {
@@ -318,6 +349,7 @@ $.each( $('.hex'), function(){
 });
 
 $(window).resize(function(){
+	/*
 	$.each( $('.hex'), function(){
 		var $xi = $(this).find('.hex-inner');
 		var w = $xi.innerWidth();
@@ -327,6 +359,7 @@ $(window).resize(function(){
 		$(this).children('.hex-wrap').css('top', h/2);
 		console.log('resized!');
 	});
+	*/
 
 	$('.simplehex').each(function(){
 		$(this).css('font-size',$(this).width());
