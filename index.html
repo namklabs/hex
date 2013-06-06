@@ -8,9 +8,25 @@
 * {
 	color: #eeeeee;
 }
+body {
+	font-size: 18px;
+}
+h1,h2,h3,h4,h5,h6 {
+	margin: 0;
+}
 .hex {
 	cursor: default;
 	position: relative;
+	transition: all 200ms ease;
+	transform: rotate(0deg);
+	-webkit-transition: all 200ms ease;
+	-webkit-transform: rotate(0deg);
+}
+.hex:hover {
+	transition: all 200ms ease;
+	transform: rotate(30deg);
+	-webkit-transition: all 200ms ease;
+	-webkit-transform: rotate(30deg);
 }
 .hex a {
 	cursor: pointer;
@@ -49,8 +65,8 @@
 }
 .hex-content {
 	z-index: 0;
-	overflow: scroll;
-	-webkit-overflow-scrolling: touch;
+	/*overflow: scroll;*/
+	/*-webkit-overflow-scrolling: touch;*/
 }
 .hex.tilt30 {
 	-webkit-transform: rotate(30deg);
@@ -60,79 +76,229 @@
 	-webkit-transform: rotate(-30deg);
 	transform: rotate(-30deg);
 }
+
+.simplehex {
+	cursor: pointer;
+	font-size: 20em;
+	-webkit-transition: all 200ms ease;
+	/*-webkit-transform: rotate(60deg);*/
+	transition: all 200ms ease;
+	/*transform: rotate(60deg);*/
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+.simplehex:hover {
+	-webkit-transition: all 200ms ease;
+	-webkit-transform: rotate(30deg);
+	transition: all 200ms ease;
+	transform: rotate(30deg);
+}
+.simplehex .middle {
+	background-color: #FF7777;
+	border-top: 1px solid #ff7777;
+	border-bottom: 1px solid #ff7777;
+	height: 0.57735026918963em;
+	position: relative;
+	width: 1em;
+}
+.simplehex .middle:before{
+	content: '';
+	position: absolute;
+	border-bottom: 3px solid #ff7777;
+	bottom: -2px;
+	width: 98%;
+	left: 1%;
+}
+.simplehex .middle:after {
+	content: '';
+	position: absolute;
+	border-top: 3px solid #ff7777;
+	top: -2px;
+	width: 98%;
+	left: 1%;
+}
+.simplehex .top {
+	content: '';
+	border-top: 0 solid transparent;
+	border-right: 0.5em solid transparent;
+	border-bottom: 0.28867513459482em solid #ff7777;
+	border-left: 0.5em solid transparent;
+	height:0px;
+	width:0px;
+}
+/* Firefox fix - top and bottom had transparent line in middle. */
+.simplehex .top:before {
+	border-left: 3px solid #FF7777;
+	content: "";
+	height: 0.28em;
+	left: 49.75%;
+	position: absolute;
+	top: 2px;
+	width: 0;
+}
+.simplehex .bottom:before {
+	border-left: 3px solid #FF7777;
+	content: "";
+	height: 0.28em;
+	left: 49.75%;
+	position: absolute;
+	bottom: 2px;
+	width: 0;
+}
+/* End Firefox fix. */
+.simplehex .bottom {
+	content: '';
+	border-top: 0.28867513459482em solid #ff7777;
+	border-right: 0.5em solid transparent;
+	border-bottom: 0 solid transparent;
+	border-left: 0.5em solid transparent;
+	height:0px;
+	width:0px;
+}
+.simplehex .content {
+	font-size: 16px;
+	padding: 0 1em;
+}
 </style>
 </head>
 <body>
 
+<br>
+<br>
+<br>
 <div class="container">
 	<div class="row">
 
+		<div class="col col-lg-3 simplehex">
+			<div class="top"></div>
+			<div class="middle">
+				<div class="content"><h1>Simple Hex.</h1><p>Looks terrible in non-webkit, but maybe it won't someday. Has a lot less JavaScript but a little more CSS.</p></div>
+			</div>
+			<div class="bottom"></div>
+		</div>
+
 		<div class="col col-lg-3">
-			<div class="hex tilt30">
-				<div class="hex-wrap">
-					<div class="hex-inner hex0 hex-content">
-						<h1>Does pink suit you?</h1>
-					</div>
-					<div class="hex-inner hex-60">
-						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
-					</div>
-					<div class="hex-inner hex60">
-						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
-					</div>
-				</div>
-			</div><!-- /.hex -->
-		</div><!-- /.col .col-lg-3 -->
-
-		<div class="col col-lg-4">
 			<div class="hex">
 				<div class="hex-wrap">
 					<div class="hex-inner hex0 hex-content">
-						<h1>Does pink suit you?</h1>
+						<h1>Original Hex.</h1>
+						<p>Needs more JavaScript but works better in every browser; no weird CSS needed to fix for Firefox.</p>
 					</div>
 					<div class="hex-inner hex-60">
-						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
-					</div>
+<!-- 						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
+ -->					</div>
 					<div class="hex-inner hex60">
-						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
-					</div>
+<!-- 						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
+ -->					</div>
 				</div>
-			</div><!-- /.hex -->
+			</div>
 		</div>
 
-		<div class="col col-lg-2">
-			<div class="hex tilt-30">
-				<div class="hex-wrap">
-					<div class="hex-inner hex0 hex-content">
-						<h1>Does pink suit you?</h1>
-					</div>
-					<div class="hex-inner hex-60">
-						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
-					</div>
-					<div class="hex-inner hex60">
-						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
-					</div>
-				</div>
-			</div><!-- /.hex -->
+		<div class="col col-lg-3 simplehex">
+			<div class="top"></div>
+			<div class="middle">
+				<div class="content"><h1>Simple Hex.</h1><p>Looks terrible in non-webkit, but maybe it won't someday. Has a lot less JavaScript but a little more CSS.</p></div>
+			</div>
+			<div class="bottom"></div>
 		</div>
 
-		<div class="col col-lg-1">
+		<div class="col col-lg-3">
 			<div class="hex">
 				<div class="hex-wrap">
 					<div class="hex-inner hex0 hex-content">
-						<h1>Does pink suit you?</h1>
+					<h1>Original Hex.</h1>
+					<p>Needs more JavaScript but works better in every browser; no weird CSS needed to fix for Firefox.</p>
 					</div>
 					<div class="hex-inner hex-60">
-						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
-					</div>
+<!-- 						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
+ -->					</div>
 					<div class="hex-inner hex60">
-						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
+<!-- 						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
+ -->					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col col-lg-6 simplehex">
+			<div class="top"></div>
+			<div class="middle">
+				<div class="content"><h1>Simple Hex.</h1><p>Looks terrible in non-webkit, but maybe it won't someday. Has a lot less JavaScript but a little more CSS.</p></div>
+			</div>
+			<div class="bottom"></div>
+		</div>
+
+		<div class="col col-lg-6">
+			<div class="hex">
+				<div class="hex-wrap">
+					<div class="hex-inner hex0 hex-content">
+					<h1>Original Hex.</h1>
+					<p>Needs more JavaScript but works better in every browser; no weird CSS needed to fix for Firefox.</p>
 					</div>
+					<div class="hex-inner hex-60">
+<!-- 						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
+ -->					</div>
+					<div class="hex-inner hex60">
+<!-- 						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
+ -->					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col col-lg-3 simplehex">
+			<div class="top"></div>
+			<div class="middle">
+				<div class="content"><h1>Simple Hex.</h1><p>Looks terrible in non-webkit, but maybe it won't someday. Has a lot less JavaScript but a little more CSS.</p></div>
+			</div>
+			<div class="bottom"></div>
+		</div>
+
+		<div class="col col-lg-3">
+			<div class="hex">
+				<div class="hex-wrap">
+					<div class="hex-inner hex0 hex-content">
+					<h1>Original Hex.</h1>
+					<p>Needs more JavaScript but works better in every browser; no weird CSS needed to fix for Firefox.</p>
+					</div>
+					<div class="hex-inner hex-60">
+<!-- 						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
+ -->					</div>
+					<div class="hex-inner hex60">
+<!-- 						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
+ -->					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col col-lg-3 simplehex">
+			<div class="top"></div>
+			<div class="middle">
+				<div class="content"><h1>Simple Hex.</h1><p>Looks terrible in non-webkit, but maybe it won't someday. Has a lot less JavaScript but a little more CSS.</p></div>
+			</div>
+			<div class="bottom"></div>
+		</div>
+
+		<div class="col col-lg-3">
+			<div class="hex">
+				<div class="hex-wrap">
+					<div class="hex-inner hex0 hex-content">
+					<h1>Original Hex.</h1>
+					<p>Needs more JavaScript but works better in every browser; no weird CSS needed to fix for Firefox.</p>
+					</div>
+					<div class="hex-inner hex-60">
+<!-- 						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
+ -->					</div>
+					<div class="hex-inner hex60">
+<!-- 						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
+ -->					</div>
 				</div>
 			</div>
 		</div>
 
 	</div><!-- /.row -->
 </div><!-- /.container -->
+
+<br>
+<br>
+<br>
 
 <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
 <!-- <script src="bootstrap3.min.js"></script> -->
@@ -161,6 +327,11 @@ $(window).resize(function(){
 		$(this).children('.hex-wrap').css('top', h/2);
 		console.log('resized!');
 	});
+
+	$('.simplehex').each(function(){
+		$(this).css('font-size',$(this).width());
+	});
+
 });
 
 $(function(){
