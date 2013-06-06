@@ -32,13 +32,16 @@ h1,h2,h3,h4,h5,h6 {
 
 .hex-wrap {
 	transition: all .2s ease;
+	-ms-transition: all .2s ease;
 	-webkit-transition: all .2s ease;
 
 	transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
 	-webkit-transform: rotate(0deg);
 
 	transform-origin: 50% 28.867513459462575%;
 	-webkit-transform-origin: 50% 28.867513459462575%;
+	-ms-transform-origin: 50% 28.867513459462575%;
 
 	position: relative;
 	/* responsive design from http://wemadeyoulook.at/blogg/proportional-scaling-responsive-boxes-using-just-css/ */
@@ -52,9 +55,11 @@ h1,h2,h3,h4,h5,h6 {
 
 .hex-wrap:hover {
 	transition: all .2s ease;
+	-ms-transition: all .2s ease;
 	-webkit-transition: all .2s ease;
 
 	transform: rotate(30deg);
+	-ms-transform: rotate(30deg);
 	-webkit-transform: rotate(30deg);
 }
 
@@ -70,27 +75,37 @@ h1,h2,h3,h4,h5,h6 {
 	width: 100%;
 	z-index: -2;
 }
+
 .hex60 {
-	-webkit-transform: rotate(60deg);
 	transform: rotate(60deg);
+	-ms-transform: rotate(60deg);
+	-webkit-transform: rotate(60deg);
+
 	z-index: -1;
 }
+
 .hex-60 {
-	-webkit-transform: rotate(-60deg);
 	transform: rotate(-60deg);
+	-ms-transform: rotate(-60deg);
+	-webkit-transform: rotate(-60deg);
 }
+
 .hex-content {
 	z-index: 0;
 	/*overflow: scroll;*/
 	/*-webkit-overflow-scrolling: touch;*/
 }
+
 .hex.tilt30 {
-	-webkit-transform: rotate(30deg);
 	transform: rotate(30deg);
+	-ms-transform: rotate(30deg);
+	-webkit-transform: rotate(30deg);
 }
+
 .hex.tilt-30 {
-	-webkit-transform: rotate(-30deg);
 	transform: rotate(-30deg);
+	-ms-transform: rotate(-30deg);
+	-webkit-transform: rotate(-30deg);
 }
 
 .simplehex {
