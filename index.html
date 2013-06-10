@@ -53,7 +53,16 @@ h1,h2,h3,h4,h5,h6 {
 	height: 0;
 }
 
-.hex-wrap:hover {
+.hex.hover0:hover .hex-wrap {
+	transition: all .2s ease;
+	-ms-transition: all .2s ease;
+	-webkit-transition: all .2s ease;
+
+	transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+}
+.hex.hover30:hover .hex-wrap {
 	transition: all .2s ease;
 	-ms-transition: all .2s ease;
 	-webkit-transition: all .2s ease;
@@ -61,6 +70,33 @@ h1,h2,h3,h4,h5,h6 {
 	transform: rotate(30deg);
 	-ms-transform: rotate(30deg);
 	-webkit-transform: rotate(30deg);
+}
+.hex.hover-30:hover .hex-wrap {
+	transition: all .2s ease;
+	-ms-transition: all .2s ease;
+	-webkit-transition: all .2s ease;
+
+	transform: rotate(-30deg);
+	-ms-transform: rotate(-30deg);
+	-webkit-transform: rotate(-30deg);
+}
+.hex.hover60:hover .hex-wrap {
+	transition: all .2s ease;
+	-ms-transition: all .2s ease;
+	-webkit-transition: all .2s ease;
+
+	transform: rotate(60deg);
+	-ms-transform: rotate(60deg);
+	-webkit-transform: rotate(60deg);
+}
+.hex.hover-60:hover .hex-wrap {
+	transition: all .2s ease;
+	-ms-transition: all .2s ease;
+	-webkit-transition: all .2s ease;
+
+	transform: rotate(-60deg);
+	-ms-transform: rotate(-60deg);
+	-webkit-transform: rotate(-60deg);
 }
 
 .hex-inner {
@@ -96,16 +132,25 @@ h1,h2,h3,h4,h5,h6 {
 	/*-webkit-overflow-scrolling: touch;*/
 }
 
-.hex.tilt30 {
+.hex.tilt30 .hex-wrap {
 	transform: rotate(30deg);
 	-ms-transform: rotate(30deg);
 	-webkit-transform: rotate(30deg);
 }
-
-.hex.tilt-30 {
+.hex.tilt-30 .hex-wrap {
 	transform: rotate(-30deg);
 	-ms-transform: rotate(-30deg);
 	-webkit-transform: rotate(-30deg);
+}
+.hex.tilt60 .hex-wrap {
+	transform: rotate(60deg);
+	-ms-transform: rotate(60deg);
+	-webkit-transform: rotate(60deg);
+}
+.hex.tilt-60 .hex-wrap {
+	transform: rotate(-60deg);
+	-ms-transform: rotate(-60deg);
+	-webkit-transform: rotate(-60deg);
 }
 
 .simplehex {
@@ -199,12 +244,38 @@ h1,h2,h3,h4,h5,h6 {
 <div class="container">
 	<div class="row">
 
-		<div class="col col-lg-3 simplehex">
-			<div class="top"></div>
-			<div class="middle">
-				<div class="content"><h1>Simple Hex.</h1><p>Looks terrible in non-webkit, but maybe it won't someday. Has a lot less JavaScript but a little more CSS.</p></div>
+		<div class="col col-lg-3">
+			<div class="hex">
+				<div class="hex-wrap">
+					<div class="hex-inner hex0 hex-content">
+						<h1>Original Hex.</h1>
+						<p>Needs more JavaScript but works better in every browser; no weird CSS needed to fix for Firefox.</p>
+					</div>
+					<div class="hex-inner hex-60">
+<!-- 						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
+ -->					</div>
+					<div class="hex-inner hex60">
+<!-- 						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
+ -->					</div>
+				</div>
 			</div>
-			<div class="bottom"></div>
+		</div>
+
+		<div class="col col-lg-3">
+			<div class="hex tilt-60 hover0">
+				<div class="hex-wrap">
+					<div class="hex-inner hex0 hex-content">
+					<h1>Original Hex.</h1>
+					<p>Needs more JavaScript but works better in every browser; no weird CSS needed to fix for Firefox.</p>
+					</div>
+					<div class="hex-inner hex-60">
+<!-- 						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
+ -->					</div>
+					<div class="hex-inner hex60">
+<!-- 						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
+ -->					</div>
+				</div>
+			</div>
 		</div>
 
 		<div class="col col-lg-3">
@@ -224,12 +295,75 @@ h1,h2,h3,h4,h5,h6 {
 			</div>
 		</div>
 
-		<div class="col col-lg-3 simplehex">
-			<div class="top"></div>
-			<div class="middle">
-				<div class="content"><h1>Simple Hex.</h1><p>Looks terrible in non-webkit, but maybe it won't someday. Has a lot less JavaScript but a little more CSS.</p></div>
+		<div class="col col-lg-3">
+			<div class="hex">
+				<div class="hex-wrap">
+					<div class="hex-inner hex0 hex-content">
+					<h1>Original Hex.</h1>
+					<p>Needs more JavaScript but works better in every browser; no weird CSS needed to fix for Firefox.</p>
+					</div>
+					<div class="hex-inner hex-60">
+<!-- 						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
+ -->					</div>
+					<div class="hex-inner hex60">
+<!-- 						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
+ -->					</div>
+				</div>
 			</div>
-			<div class="bottom"></div>
+		</div>
+	</div>
+
+	<div class="row">
+
+		<div class="col col-lg-3">
+			<div class="hex">
+				<div class="hex-wrap">
+					<div class="hex-inner hex0 hex-content">
+						<h1>Original Hex.</h1>
+						<p>Needs more JavaScript but works better in every browser; no weird CSS needed to fix for Firefox.</p>
+					</div>
+					<div class="hex-inner hex-60">
+<!-- 						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
+ -->					</div>
+					<div class="hex-inner hex60">
+<!-- 						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
+ -->					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col col-lg-3">
+			<div class="hex tilt-60 hover0">
+				<div class="hex-wrap">
+					<div class="hex-inner hex0 hex-content">
+					<h1>Original Hex.</h1>
+					<p>Needs more JavaScript but works better in every browser; no weird CSS needed to fix for Firefox.</p>
+					</div>
+					<div class="hex-inner hex-60">
+<!-- 						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
+ -->					</div>
+					<div class="hex-inner hex60">
+<!-- 						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
+ -->					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col col-lg-3">
+			<div class="hex">
+				<div class="hex-wrap">
+					<div class="hex-inner hex0 hex-content">
+						<h1>Original Hex.</h1>
+						<p>Needs more JavaScript but works better in every browser; no weird CSS needed to fix for Firefox.</p>
+					</div>
+					<div class="hex-inner hex-60">
+<!-- 						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
+ -->					</div>
+					<div class="hex-inner hex60">
+<!-- 						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
+ -->					</div>
+				</div>
+			</div>
 		</div>
 
 		<div class="col col-lg-3">
@@ -248,14 +382,9 @@ h1,h2,h3,h4,h5,h6 {
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<div class="col col-lg-6 simplehex">
-			<div class="top"></div>
-			<div class="middle">
-				<div class="content"><h1>Simple Hex.</h1><p>Looks terrible in non-webkit, but maybe it won't someday. Has a lot less JavaScript but a little more CSS.</p></div>
-			</div>
-			<div class="bottom"></div>
-		</div>
+	<div class="row">
 
 		<div class="col col-lg-6">
 			<div class="hex">
@@ -274,15 +403,7 @@ h1,h2,h3,h4,h5,h6 {
 			</div>
 		</div>
 
-		<div class="col col-lg-3 simplehex">
-			<div class="top"></div>
-			<div class="middle">
-				<div class="content"><h1>Simple Hex.</h1><p>Looks terrible in non-webkit, but maybe it won't someday. Has a lot less JavaScript but a little more CSS.</p></div>
-			</div>
-			<div class="bottom"></div>
-		</div>
-
-		<div class="col col-lg-3">
+		<div class="col col-lg-4">
 			<div class="hex">
 				<div class="hex-wrap">
 					<div class="hex-inner hex0 hex-content">
@@ -299,15 +420,7 @@ h1,h2,h3,h4,h5,h6 {
 			</div>
 		</div>
 
-		<div class="col col-lg-3 simplehex">
-			<div class="top"></div>
-			<div class="middle">
-				<div class="content"><h1>Simple Hex.</h1><p>Looks terrible in non-webkit, but maybe it won't someday. Has a lot less JavaScript but a little more CSS.</p></div>
-			</div>
-			<div class="bottom"></div>
-		</div>
-
-		<div class="col col-lg-3">
+		<div class="col col-lg-2">
 			<div class="hex">
 				<div class="hex-wrap">
 					<div class="hex-inner hex0 hex-content">
