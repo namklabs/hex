@@ -5,24 +5,24 @@
 <title>Hexagons!</title>
 <link href="bootstrap3.css" rel="stylesheet">
 <style>
+
 * {
 	color: #eeeeee;
 }
+
 body {
 	font-size: 18px;
 }
+
 h1,h2,h3,h4,h5,h6 {
 	margin: 0;
 }
-.hex {
-	cursor: default;
-	position: relative;
-}
+
 .hex a {
 	cursor: pointer;
 }
+
 .hex h1 {
-	margin: 0;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -30,210 +30,87 @@ h1,h2,h3,h4,h5,h6 {
 	user-select: none;
 }
 
-.hex-wrap {
+.hex {
 	transition: all .2s ease;
 	-ms-transition: all .2s ease;
 	-webkit-transition: all .2s ease;
-
-	transform: rotate(0deg);
-	-ms-transform: rotate(0deg);
-	-webkit-transform: rotate(0deg);
 
 	transform-origin: 50% 28.867513459462575%;
 	-webkit-transform-origin: 50% 28.867513459462575%;
 	-ms-transform-origin: 50% 28.867513459462575%;
 
-	position: relative;
 	/* responsive design from http://wemadeyoulook.at/blogg/proportional-scaling-responsive-boxes-using-just-css/ */
+	position: relative;
+	float: left;
+
 	width: 100%;
+	height: 0;
+	padding-bottom: 100%;
 	margin-top: 28.867513459462575%;
 	margin-bottom: -13.397459621%;
-	padding-bottom: 100%;
-	float: left;
-	height: 0;
+
+	cursor: default;
 }
 
-.hex.hover0:hover .hex-wrap {
-	transition: all .2s ease;
-	-ms-transition: all .2s ease;
-	-webkit-transition: all .2s ease;
+.hex-inner,
+.hex-inner + div,
+.hex-inner + div + div {
+	position: absolute;
+	z-index: -2;
+	top: 0;
+	left: 0;
 
-	transform: rotate(0deg);
-	-ms-transform: rotate(0deg);
-	-webkit-transform: rotate(0deg);
-}
-.hex.hover30:hover .hex-wrap {
-	transition: all .2s ease;
-	-ms-transition: all .2s ease;
-	-webkit-transition: all .2s ease;
+	overflow: hidden;
+	width: 100%;
+	height: 57.73502691892515%;
+	padding: 0 1em;
 
-	transform: rotate(30deg);
-	-ms-transform: rotate(30deg);
-	-webkit-transform: rotate(30deg);
-}
-.hex.hover-30:hover .hex-wrap {
-	transition: all .2s ease;
-	-ms-transition: all .2s ease;
-	-webkit-transition: all .2s ease;
-
-	transform: rotate(-30deg);
-	-ms-transform: rotate(-30deg);
-	-webkit-transform: rotate(-30deg);
-}
-.hex.hover60:hover .hex-wrap {
-	transition: all .2s ease;
-	-ms-transition: all .2s ease;
-	-webkit-transition: all .2s ease;
-
-	transform: rotate(60deg);
-	-ms-transform: rotate(60deg);
-	-webkit-transform: rotate(60deg);
-}
-.hex.hover-60:hover .hex-wrap {
-	transition: all .2s ease;
-	-ms-transition: all .2s ease;
-	-webkit-transition: all .2s ease;
-
-	transform: rotate(-60deg);
-	-ms-transform: rotate(-60deg);
-	-webkit-transform: rotate(-60deg);
+	background-color: #FF7777;
+	cursor: pointer;
 }
 
 .hex-inner {
-	background-color: #FF7777;
-	cursor: pointer;
-	height: 57.73502691892515%;
-	left: 0;
-	overflow: hidden;
-	padding: 0 1em;
-	position: absolute;
-	top: 0;
-	width: 100%;
-	z-index: -2;
-}
-
-.hex60 {
-	transform: rotate(60deg);
-	-ms-transform: rotate(60deg);
-	-webkit-transform: rotate(60deg);
-
-	z-index: -1;
-}
-
-.hex-60 {
-	transform: rotate(-60deg);
-	-ms-transform: rotate(-60deg);
-	-webkit-transform: rotate(-60deg);
-}
-
-.hex-content {
 	z-index: 0;
 	/*overflow: scroll;*/
 	/*-webkit-overflow-scrolling: touch;*/
 }
 
-.hex.tilt30 .hex-wrap {
+.hover0:hover {
+	transform: rotate(0);
+	-ms-transform: rotate(0);
+	-webkit-transform: rotate(0);
+}
+
+.tilt30,
+.hover30:hover {
 	transform: rotate(30deg);
 	-ms-transform: rotate(30deg);
 	-webkit-transform: rotate(30deg);
 }
-.hex.tilt-30 .hex-wrap {
+
+.tilt-30,
+.hover-30:hover {
 	transform: rotate(-30deg);
 	-ms-transform: rotate(-30deg);
 	-webkit-transform: rotate(-30deg);
 }
-.hex.tilt60 .hex-wrap {
+
+.tilt60,
+.hover60:hover,
+.hex-inner + div {
 	transform: rotate(60deg);
 	-ms-transform: rotate(60deg);
 	-webkit-transform: rotate(60deg);
 }
-.hex.tilt-60 .hex-wrap {
+
+.tilt-60,
+.hover-60:hover,
+.hex-inner + div + div {
 	transform: rotate(-60deg);
 	-ms-transform: rotate(-60deg);
 	-webkit-transform: rotate(-60deg);
 }
 
-.simplehex {
-	cursor: pointer;
-	font-size: 20em;
-	-webkit-transition: all 200ms ease;
-	/*-webkit-transform: rotate(60deg);*/
-	transition: all 200ms ease;
-	/*transform: rotate(60deg);*/
-	-webkit-font-smoothing: subpixel-antialiased;
-}
-.simplehex:hover {
-	-webkit-transition: all 200ms ease;
-	-webkit-transform: rotate(30deg);
-	transition: all 200ms ease;
-	transform: rotate(30deg);
-}
-.simplehex .middle {
-	background-color: #FF7777;
-	border-top: 1px solid #ff7777;
-	border-bottom: 1px solid #ff7777;
-	height: 0.57735026918963em;
-	position: relative;
-	width: 1em;
-}
-.simplehex .middle:before{
-	content: '';
-	position: absolute;
-	border-bottom: 3px solid #ff7777;
-	bottom: -2px;
-	width: 98%;
-	left: 1%;
-}
-.simplehex .middle:after {
-	content: '';
-	position: absolute;
-	border-top: 3px solid #ff7777;
-	top: -2px;
-	width: 98%;
-	left: 1%;
-}
-.simplehex .top {
-	content: '';
-	border-top: 0 solid transparent;
-	border-right: 0.5em solid transparent;
-	border-bottom: 0.28867513459482em solid #ff7777;
-	border-left: 0.5em solid transparent;
-	height:0px;
-	width:0px;
-}
-/* Firefox fix - top and bottom had transparent line in middle. */
-.simplehex .top:before {
-	border-left: 3px solid #FF7777;
-	content: "";
-	height: 0.28em;
-	left: 49.75%;
-	position: absolute;
-	top: 2px;
-	width: 0;
-}
-.simplehex .bottom:before {
-	border-left: 3px solid #FF7777;
-	content: "";
-	height: 0.28em;
-	left: 49.75%;
-	position: absolute;
-	bottom: 2px;
-	width: 0;
-}
-/* End Firefox fix. */
-.simplehex .bottom {
-	content: '';
-	border-top: 0.28867513459482em solid #ff7777;
-	border-right: 0.5em solid transparent;
-	border-bottom: 0 solid transparent;
-	border-left: 0.5em solid transparent;
-	height:0px;
-	width:0px;
-}
-.simplehex .content {
-	font-size: 16px;
-	padding: 0 1em;
-}
 </style>
 </head>
 <body>
@@ -242,28 +119,172 @@ h1,h2,h3,h4,h5,h6 {
 <br>
 <br>
 <div class="container">
+
+	<div class="row">
+
+		<div class="col col-lg-2 col-offset-2">
+			<div class="hex hover-30">
+				<div class="hex-inner">
+					Hello
+				</div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+		<div class="col col-lg-2">
+			<div class="hex tilt-60 hover0">
+				<div class="hex-inner">
+					Hello
+				</div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+		<div class="col col-lg-2">
+			<div class="hex hover-60">
+				<div class="hex-inner">
+					Hello<br>
+					Weird rendering bug
+				</div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+		<div class="col col-lg-2">
+			<div class="hex hover-60">
+				<div class="hex-inner">
+					When swiping left
+					on Win7+Chrome
+				</div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="row">
+
+		<div class="col col-lg-2 col-offset-1">
+			<div class="hex">
+				<div class="hex-inner">
+					Hello
+				</div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+		<div class="col col-lg-2">
+			<div class="hex">
+				<div class="hex-inner">
+					Hello
+				</div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+		<div class="col col-lg-2">
+			<div class="hex">
+				<div class="hex-inner">
+					Hello
+				</div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+		<div class="col col-lg-2">
+			<div class="hex">
+				<div class="hex-inner">
+					Hello
+				</div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+		<div class="col col-lg-2">
+			<div class="hex">
+				<div class="hex-inner">
+					Hello
+				</div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="row">
+
+		<div class="col col-lg-2 col-offset-2">
+			<div class="hex">
+				<div class="hex-inner">
+					Hello
+				</div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+		<div class="col col-lg-2">
+			<div class="hex">
+				<div class="hex-inner">
+					Hello
+				</div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+		<div class="col col-lg-2">
+			<div class="hex">
+				<div class="hex-inner">
+					Hello
+				</div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+		<div class="col col-lg-2">
+			<div class="hex">
+				<div class="hex-inner">
+					Hello
+				</div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+	</div>
+
+
+
 	<div class="row">
 
 		<div class="col col-lg-3">
 			<div class="hex">
-				<div class="hex-wrap">
-					<div class="hex-inner hex0 hex-content">
+					<div class="hex-inner hex-content">
 						<h1>Original Hex.</h1>
 						<p>Needs more JavaScript but works better in every browser; no weird CSS needed to fix for Firefox.</p>
 					</div>
-					<div class="hex-inner hex-60">
+					<div class="hex-inner tilt-60">
 <!-- 						<h1 style="display:none;">Check this out! I bet you ain't never seen the likes of this before. How many times in the last two sentences could I have probably sworn? Probably 6. I'm very excited about these hexagons.</h1>
  -->					</div>
-					<div class="hex-inner hex60">
+					<div class="hex-inner tilt60">
 <!-- 						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
  -->					</div>
 				</div>
-			</div>
 		</div>
 
 		<div class="col col-lg-3">
 			<div class="hex tilt-60 hover0">
-				<div class="hex-wrap">
 					<div class="hex-inner hex0 hex-content">
 					<h1>Original Hex.</h1>
 					<p>Needs more JavaScript but works better in every browser; no weird CSS needed to fix for Firefox.</p>
@@ -274,7 +295,6 @@ h1,h2,h3,h4,h5,h6 {
 					<div class="hex-inner hex60">
 <!-- 						<h1 style="display:none;">This probably looks terrible on Windows, but not on your phone!</h1>
  -->					</div>
-				</div>
 			</div>
 		</div>
 
@@ -438,6 +458,8 @@ h1,h2,h3,h4,h5,h6 {
 		</div>
 
 	</div><!-- /.row -->
+
+
 </div><!-- /.container -->
 
 <br>
@@ -447,6 +469,7 @@ h1,h2,h3,h4,h5,h6 {
 <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
 <!-- <script src="bootstrap3.min.js"></script> -->
 <script>
+
 $.each( $('.hex'), function(){
 	$(this).click(function(){
 		$h = $(this).find('.hex-inner h1');
@@ -461,28 +484,6 @@ $.each( $('.hex'), function(){
 	});
 });
 
-$(window).resize(function(){
-	/*
-	$.each( $('.hex'), function(){
-		var $xi = $(this).find('.hex-inner');
-		var w = $xi.innerWidth();
-		var h = w / 1.73205080757;// sqrt(3) = width of hexagon, 1 = height: http://hexnet.org/content/hexagonal-geometry#geometry
-		$xi.height( h );
-		$(this).height( 2 * h );
-		$(this).children('.hex-wrap').css('top', h/2);
-		console.log('resized!');
-	});
-	*/
-
-	$('.simplehex').each(function(){
-		$(this).css('font-size',$(this).width());
-	});
-
-});
-
-$(function(){
-	$(window).trigger('resize');
-});
 </script>
 </body>
 </html>
